@@ -30,4 +30,9 @@ public class StateFactory
     {
         return new CharacterIdleState(_context, this);
     }
+
+    public CharacterSlopeState Slope()
+    {
+        return new CharacterSlopeState(_context, this);
+    }
 }

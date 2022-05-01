@@ -11,15 +11,29 @@ public class Cam_follower : MonoBehaviour
     //Parameters
     public float sensitivity;
     private float mouseX;
- 
+    private bool isInventroyOpen=false;
 
     void Start()
     {
         Cursor.visible = false;
-        Cursor.lockState=CursorLockMode.Locked;
+        //Cursor.lockState=CursorLockMode.Locked;
     }
 
-
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            isInventroyOpen = !isInventroyOpen;
+        }
+        if(isInventroyOpen)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
     void LateUpdate()
     {
         mouseX = Input.GetAxisRaw("Mouse X");

@@ -13,15 +13,18 @@ public class CharacterGroundedState : CharacterBaseState
     public override void EnterState()
     {
         _ctx._playerAnim.SetBool("isJumping", false);
+        Debug.Log("is in enterstate");
     }
 
     public override void ExitState()
     {
-        
+        Debug.Log("is in exitstate");
     }
 
     public override void InitializeSubstates()
     {
+        Debug.Log("is in Initializestate");
+
         if (_ctx.IsMoving())
         {
             SetSubState(_stateFactory.Move());
@@ -49,6 +52,10 @@ public class CharacterGroundedState : CharacterBaseState
         if(Input.GetKey(KeyCode.Space) && !_ctx._jumpReset && _ctx.OnGround())
         {
             SwitchState(_stateFactory.Jump());
+        }
+        if(_ctx.OnSlope())
+        {
+
         }
     }
 

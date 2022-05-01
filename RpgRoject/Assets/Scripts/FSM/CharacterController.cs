@@ -105,6 +105,8 @@ public class CharacterController : MonoBehaviour
     {
         if (Physics.Raycast(transform.position + _col.center, Vector3.down, out _hit, _downRayCastdistance, _groundMask))
         {
+            float angle = Vector3.Dot(Vector3.up, _hit.normal);
+            Debug.Log("angle: "+angle);
             if (_hit.normal != Vector3.up)
             {
                 //Debug.Log("On slope");
